@@ -1,0 +1,23 @@
+kotlin code:
+
+
+
+
+
+
+lateinit var tts : TextToSpeech
+lateinit var Text_Speech : String	
+
+
+private fun speak(ttt:String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {
+            tts = TextToSpeech(applicationContext, TextToSpeech.OnInitListener {
+                if(it==TextToSpeech.SUCCESS){
+                    tts.language = Locale.US
+                    tts.setSpeechRate(1.0f)
+                    tts.speak(ttt,TextToSpeech.QUEUE_ADD,null)
+
+                }
+            })
+        }
+    }
